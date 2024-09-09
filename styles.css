@@ -45,13 +45,26 @@
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ BODY STYLES ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
 body {
-  margin-inline: 1rem;
+  padding-inline: 1rem;
   background-color: var(--clr-bg-body);
 }
 
 main {
   max-width: var(--mw-card);
   margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  body {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+  }
+
+  main {
+    margin-block: 10rem;
+    min-width: var(--mw-card);
+  }
 }
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ UTILITY CLASSES ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
@@ -143,6 +156,16 @@ h1 {
   margin-inline: auto;
 }
 
+@media (min-width: 768px) {
+  header {
+    position: absolute;
+    padding: 0;
+    top: max(5rem, 13%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ PASSWORD ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 .generated {
   display: flex;
@@ -185,6 +208,10 @@ h1 {
 }
 
 @media (min-width: 480px) {
+  .generated {
+    padding: 1.1875rem 2rem;
+  }
+
   .copy-container svg {
     scale: 1;
   }
@@ -202,6 +229,12 @@ form {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding: 1.5rem 2rem 2rem;
+  }
 }
 
 /* ////////////////// CUSTOM SLIDER ////////////////// */
@@ -437,5 +470,6 @@ input[type='range']:active::-moz-range-thumb {
 @media (min-width: 480px) {
   #generatePassword {
     --btn-p-block: 1.3125rem;
+    margin-top: 2rem;
   }
 }
