@@ -284,24 +284,6 @@ input[type='range']::-moz-range-thumb {
   cursor: pointer;
 }
 
-/* Thumb: webkit */
-input[type='range']:focus::-webkit-slider-thumb,
-input[type='range']:active::-webkit-slider-thumb {
-  height: var(--thumb-size-hover);
-  width: var(--thumb-size-hover);
-  background: var(--clr-bg-body);
-  border: 2px solid var(--clr-green);
-}
-
-/* Thumb: Firefox */
-input[type='range']:focus::-moz-range-thumb,
-input[type='range']:active::-moz-range-thumb {
-  height: var(--thumb-size-hover);
-  width: var(--thumb-size-hover);
-  background: var(--clr-bg-body);
-  border: 2px solid var(--clr-green);
-}
-
 @media (hover: hover) and (pointer: fine) {
   /* Thumb: webkit */
   input[type='range']::-webkit-slider-thumb:hover {
@@ -313,6 +295,24 @@ input[type='range']:active::-moz-range-thumb {
 
   /* Thumb: Firefox */
   input[type='range']::-moz-range-thumb:hover {
+    height: var(--thumb-size-hover);
+    width: var(--thumb-size-hover);
+    background: var(--clr-bg-body);
+    border: 2px solid var(--clr-green);
+  }
+
+  /* Thumb: webkit */
+  input[type='range']:focus::-webkit-slider-thumb,
+  input[type='range']:active::-webkit-slider-thumb {
+    height: var(--thumb-size-hover);
+    width: var(--thumb-size-hover);
+    background: var(--clr-bg-body);
+    border: 2px solid var(--clr-green);
+  }
+
+  /* Thumb: Firefox */
+  input[type='range']:focus::-moz-range-thumb,
+  input[type='range']:active::-moz-range-thumb {
     height: var(--thumb-size-hover);
     width: var(--thumb-size-hover);
     background: var(--clr-bg-body);
