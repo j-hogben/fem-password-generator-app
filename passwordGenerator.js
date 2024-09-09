@@ -13,12 +13,14 @@ const sliderValueClr = rootStyles.getPropertyValue('--clr-green').trim();
 sliderValue.textContent = slider.value;
 
 // WHEN SLIDER VALUE CHANGES, UPDATE COUNT
-slider.addEventListener('input', (event) => {
-  const sliderPosition = event.target.value;
+['input', 'touchmove'].forEach((inputMode) => {
+  slider.addEventListener(inputMode, (event) => {
+    const sliderPosition = event.target.value;
 
-  sliderValue.textContent = sliderPosition;
+    sliderValue.textContent = sliderPosition;
 
-  const progress = (sliderPosition / slider.max) * 100;
+    const progress = (sliderPosition / slider.max) * 100;
 
-  slider.style.background = `linear-gradient(to right, ${sliderValueClr} ${progress}%, ${sliderEmtpyClr} ${progress}%)`;
+    slider.style.background = `linear-gradient(to right, ${sliderValueClr} ${progress}%, ${sliderEmtpyClr} ${progress}%)`;
+  });
 });
