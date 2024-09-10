@@ -81,6 +81,10 @@ main {
   border: 0;
 }
 
+.display-none {
+  display: none;
+}
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ FONT STYLES ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
 body {
@@ -124,6 +128,7 @@ h1 {
 
 #strengthDescription {
   font-size: var(--fs-strength);
+  line-height: 1;
   text-transform: uppercase;
 }
 
@@ -173,16 +178,21 @@ h1 {
   align-items: center;
   padding: 1rem;
   background-color: var(--clr-bg-sect);
+  width: 100%;
+}
+
+#generatedPassword {
+  overflow-x: scroll;
+  white-space: nowrap;
 }
 
 .copy-container {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-#copied {
-  display: none;
+  padding-left: 1rem;
+  flex-shrink: 0;
+  /* border: 1px solid red; */
 }
 
 .copy-container button {
@@ -202,7 +212,7 @@ h1 {
 
 @media (hover: hover) and (pointer: fine) {
   .copy-container button:hover svg path,
-  .copy-container button:focus svg path {
+  .copy-container button:focus-visible svg path {
     fill: var(--clr-almost-white);
   }
 }
@@ -302,8 +312,7 @@ input[type='range']::-moz-range-thumb {
   }
 
   /* Thumb: webkit */
-  input[type='range']:focus::-webkit-slider-thumb,
-  input[type='range']:active::-webkit-slider-thumb {
+  input[type='range']:focus-visible::-webkit-slider-thumb {
     height: var(--thumb-size-hover);
     width: var(--thumb-size-hover);
     background: var(--clr-bg-body);
@@ -311,8 +320,7 @@ input[type='range']::-moz-range-thumb {
   }
 
   /* Thumb: Firefox */
-  input[type='range']:focus::-moz-range-thumb,
-  input[type='range']:active::-moz-range-thumb {
+  input[type='range']:focus-visible::-moz-range-thumb {
     height: var(--thumb-size-hover);
     width: var(--thumb-size-hover);
     background: var(--clr-bg-body);
@@ -355,6 +363,8 @@ input[type='range']::-moz-range-thumb {
   border: var(--checkbox-brd) solid #ccc;
   border-radius: var(--checkbox-brd);
   outline-offset: var(--outline-offset);
+
+  transition: var(--trans-slider);
 }
 
 .checkbox-container input[type='checkbox']::before {
@@ -373,6 +383,13 @@ input[type='range']::-moz-range-thumb {
 
   transition: var(--trans-slider);
   opacity: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .checkbox-container input[type='checkbox']:hover,
+  .checkbox-container input[type='checkbox']:focus {
+    border-color: var(--clr-green);
+  }
 }
 
 .checkbox-container input[type='checkbox']:checked::before {
@@ -418,6 +435,26 @@ input[type='range']::-moz-range-thumb {
   left: calc(-1 * var(--strength-brd));
   width: var(--strength-width);
   height: var(--strength-height);
+}
+
+.tooWeak::before {
+  background-color: var(--clr-red);
+}
+
+.weak::before {
+  background-color: var(--clr-orange);
+}
+
+.medium::before {
+  background-color: var(--clr-yellow);
+}
+
+.strong::before {
+  background-color: var(--clr-green);
+}
+
+.empty::before {
+  background-color: transparent;
 }
 
 @media (min-width: 480px) {
