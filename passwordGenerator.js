@@ -211,7 +211,7 @@ const sliderValueClr = rootStyles.getPropertyValue('--clr-green').trim();
 sliderValue.textContent = slider.value;
 
 // WHEN SLIDER VALUE CHANGES, UPDATE COUNT
-['input', 'wheel'].forEach((inputMode) => {
+['input', 'touchmove', 'wheel'].forEach((inputMode) => {
   slider.addEventListener(inputMode, (event) => {
     const sliderPosition = event.target.value;
 
