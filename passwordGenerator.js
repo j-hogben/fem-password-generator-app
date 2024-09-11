@@ -203,9 +203,9 @@ const collectInitialData = () => {
 
 const slider = document.querySelector('#charLengthSlider');
 const sliderValue = document.querySelector('#charLength');
-const rootStyles = getComputedStyle(document.documentElement);
-const sliderEmtpyClr = rootStyles.getPropertyValue('--clr-bg-body').trim();
-const sliderValueClr = rootStyles.getPropertyValue('--clr-green').trim();
+// const rootStyles = getComputedStyle(document.documentElement);
+// const sliderEmtpyClr = rootStyles.getPropertyValue('--clr-bg-body').trim();
+// const sliderValueClr = rootStyles.getPropertyValue('--clr-green').trim();
 
 // SET INITIAL SLIDER VALUE COUNT
 sliderValue.textContent = slider.value;
@@ -219,7 +219,8 @@ sliderValue.textContent = slider.value;
 
     const progress = (sliderPosition / slider.max) * 100;
 
-    slider.style.background = `linear-gradient(to right, ${sliderValueClr} ${progress}%, ${sliderEmtpyClr} ${progress}%)`;
+    // slider.style.background = `linear-gradient(to right, ${sliderValueClr} ${progress}%, ${sliderEmtpyClr} ${progress}%)`;
+    slider.style.background = `linear-gradient(to right, #a4ffaf, #a4ffaf ${progress}%, #08070b ${progress}%)`;
   });
 });
 
